@@ -1,0 +1,84 @@
+@font-face {
+    font-family: chopsic;
+    src: url(fonts/Chopsic.otf);
+}
+
+@font-face {
+    font-family: LaPicaDemo;
+    src: url(fonts/LaPicaDemo.otf);
+}
+
+nav {
+    align-items: center;
+    background-color: #f2f2f2;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+}
+
+.logo img {
+    height: 140px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    border-radius: 55px;
+    color: black;
+    font-family: Chopsic;
+    font-size: 35px;
+    padding: 15px;
+    text-decoration: none;
+}
+
+.cartLink a img {
+    height: 65px;
+}
+
+.nonCurrentLinks a {
+    background-color: #00ff00;
+}
+
+.currentLink a {
+    background-color: yellow;
+}
+
+.adBox {
+    background-image: linear-gradient(#f3ff2b, #bab75b);
+    box-shadow: 3px 3px 15px 2px black;
+    margin: 17% 9%;
+    text-align: center;
+}
+
+.homeSection .adBox h1 {
+    font-family: Skia;
+    font-size: 55px;
+    font-weight: 900;
+}
+
+.homeSection .adBox h2 {
+    font-family: LaPicaDemo;
+    font-size: 75px;
+    margin: 0% 0% 8% 0%;
+}
+
+.homeSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.homeSection a img {
+    background-image: linear-gradient(#00ff00, #00c320);
+    box-shadow: 3px 3px 15px 2px black;
+    height: 450px;
+    margin: 20px 12%;
+    padding: 20px 0px;
+}
+
+.footer {
+    background-color: #f2f2f2;
+}
+
+.footer h2 {
+    font-family: LaPicaDemo;
+}
