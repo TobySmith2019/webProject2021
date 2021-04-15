@@ -8,6 +8,13 @@
     src: url(fonts/LaPicaDemo.otf);
 }
 
+@font-face {
+    font-family: Skia2;
+    src: url(fonts/Skia.ttf);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
+
 nav {
     align-items: center;
     background-color: #f2f2f2;
@@ -33,6 +40,17 @@ nav a {
 
 .cartLink a img {
     height: 65px;
+    padding-bottom: 5px;
+    padding-top: 16px;
+}
+
+.currentCartLink {
+    background-color: yellow;
+    border-radius: 250px;
+}
+
+.cartLink a img: hover {
+    background-color: aqua;
 }
 
 .nonCurrentLinks a {
@@ -51,7 +69,7 @@ nav a {
 }
 
 .homeSection .adBox h1 {
-    font-family: Skia;
+    font-family: Skia2;
     font-size: 55px;
     font-weight: 900;
 }
@@ -71,14 +89,117 @@ nav a {
     background-image: linear-gradient(#00ff00, #00c320);
     box-shadow: 3px 3px 15px 2px black;
     height: 450px;
-    margin: 20px 12%;
+    margin: 5% 12% 0% 12%;
     padding: 20px 0px;
 }
 
 .footer {
     background-color: #f2f2f2;
+    display: grid;
+    grid-gap: 3%;
+    grid-template-columns: 2fr 3fr;
+    margin: 1% 10% 0% 10%;
+    align-items: center;
 }
 
 .footer h2 {
     font-family: LaPicaDemo;
+}
+
+.footer ul {
+    font-family: Skia2;
+    font-size: 20px;
+}
+
+.footer p {
+    font-family: Skia2;
+}
+
+.currentLink a:hover,
+.nonCurrentLinks a:hover {
+    background-color: aqua;
+    border-radius: 250px;
+}
+
+.currentCartLink a:hover,
+.cartLink a:hover {
+    background-color: aqua;
+    margin-top: 0px;
+    padding-bottom: 3px;
+    padding-top: 57px;
+}
+
+.footerBg {
+    background-color: #f2f2f2;
+    margin-bottom: 0px;
+}
+
+body section {
+    background-image: linear-gradient(#f3ff2b, #d2d647);
+    font-family: Skia2;
+    font-size: 25px;
+    margin: 2% 5% 2% 15%;
+    padding: 0% 5% 3% 5%;
+}
+
+.about {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+.about img {
+    background-image: linear-gradient(#00ff00, #00c320);
+    height: 65%;
+    margin: 4%;
+    padding: 3%;
+}
+
+.products ul {
+    align-content: center;
+    display: grid;
+    grid-column-gap: 3%;
+    grid-row-gap: 3%;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    list-style-type: none;
+    margin: 3% 10%;
+    text-align: center;
+}
+
+.products ul li {
+    background-image: linear-gradient(#00ff00, #00c320);
+    box-shadow: 3px 3px 15px 2px black;
+}
+
+li h1,
+li p {
+    font-family: Skia2;
+}
+
+li h2 {
+    font-family: 'Londrina Solid', cursive;
+}
+
+li button {
+    background-image: linear-gradient(#f3ff2b, #d2d647);
+    border: none;
+    border-radius: 25px;
+    box-shadow: 3px 3px 15px 2px black;
+    font-family: Skia2;
+    font-size: 15px;
+    margin-bottom: 5%;
+    padding: 5px;
+}
+
+li input {
+    text-align: center;
+    width: 8%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
