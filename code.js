@@ -7,16 +7,15 @@ var products = [
     ['Red Hoodie', "images/hoodie3.png", 3.94, 'description']
 ];
 
-var cartItems = [];
+var cartItems = [[]];
 var quantity = [
     0, 0, 0, 0, 0, 0
 ];
-var totalProducts = 6;
 
 function loadProducts() {
     var main = document.getElementById('shopping');
 
-    for (var i = 0; i < totalProducts; i++) {
+    for (var i = 0; i < products.length; i++) {
 
         var ele = document.createElement('li');
         var title = document.createElement('h1');
@@ -124,10 +123,13 @@ function addToCart() {
 }
 
 function cart(num) {
-    var cart = products[num];
-    var base = quantity[num].value;
-    quantity[num] = base + document.getElementById('input' + num).value;
-    console.log(quantity[num]);
+    var input = document.getElementById('input' + num).value;
+    quantity[num] = localStorage.getItem("quantity" + num);
+    for (var i = 0; i < input; i++) {
+        quantity[num]++;
+        console.log(quantity[num]);
+        localStorage.setItem("quantity" + num, quantity[num]);
+    }
     document.getElementById('input' + num).value = 1;
 }
 
@@ -143,4 +145,67 @@ function subNum(num) {
         inputValue--;
         document.getElementById('input' + num).value = inputValue;
     }
+}
+
+function cartProducts() {
+    for (var i = 0; i < products.length; i++) {
+        quantity[i] = localStorage.getItem("quantity" + i);
+    }
+    var main = document.getElementById('cartItems');
+
+    for (var i = 0; i < products.length; i++) {
+        if (quantity[i] > 0) {
+
+            var ele = document.createElement('li');
+            var title = document.createElement('h1');
+            var img = document.createElement('img');
+            var price = document.createElement('h2');
+            var desc = document.createElement('p');
+            var quan = document.createElement('p');
+            var delet = document.createElement('button');
+
+            main.appendChild(ele);
+            ele.appendChild(title);
+            ele.appendChild(img);
+            ele.appendChild(price);
+            ele.appendChild(desc);
+            ele.appendChild(quan);
+            ele.appendChild(delet);
+
+            title.innerHTML = products[i][0];
+            img.src = products[i][1];
+            price.innerHTML = products[i][2];
+            desc.innerHTML = products[i][3];
+            quan.innerHTML = quantity[i];
+            delet.innerHTML = "Delete";
+            delet.id = "d" + i;
+        }
+    }
+    deleteItems();
+}
+
+function deleteItems() {
+    document.getElementById("d0").onclick = function () {
+        delet(0);
+    };
+    document.getElementById("d1").onclick = function () {
+        delet(1);
+    };
+    document.getElementById("d2").onclick = function () {
+        delet(2);
+    };
+    document.getElementById("d3").onclick = function () {
+        delet(3);
+    };
+    document.getElementById("d4").onclick = function () {
+        delet(4);
+    };
+    document.getElementById("d5").onclick = function () {
+        delet(5);
+    }
+}
+
+function delet(num) {
+    localStorage.setItem("quantity" + num, 0);
+    window.location.reload();
 }
