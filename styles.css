@@ -8,6 +8,14 @@
     src: url(fonts/LaPicaDemo.otf);
 }
 
+@font-face {
+    font-family: Skia2;
+    font-weight: normal;
+    src: url(fonts/moonstone.ttf);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
+
 nav {
     align-items: center;
     background-color: #f2f2f2;
@@ -26,13 +34,24 @@ nav a {
     border-radius: 55px;
     color: black;
     font-family: Chopsic;
-    font-size: 35px;
+    font-size: 240%;
     padding: 15px;
     text-decoration: none;
 }
 
 .cartLink a img {
     height: 65px;
+    padding-bottom: 5px;
+    padding-top: 16px;
+}
+
+.currentCartLink {
+    background-color: yellow;
+    border-radius: 250px;
+}
+
+.cartLink a img: hover {
+    background-color: aqua;
 }
 
 .nonCurrentLinks a {
@@ -46,19 +65,19 @@ nav a {
 .adBox {
     background-image: linear-gradient(#f3ff2b, #bab75b);
     box-shadow: 3px 3px 15px 2px black;
-    margin: 17% 9%;
+    margin: 17% 10% 17% 20%;
     text-align: center;
 }
 
 .homeSection .adBox h1 {
-    font-family: Skia;
-    font-size: 55px;
-    font-weight: 900;
+    font-family: Skia2;
+    font-size: 400%;
+    font-weight: bold;
 }
 
 .homeSection .adBox h2 {
     font-family: LaPicaDemo;
-    font-size: 75px;
+    font-size: 450%;
     margin: 0% 0% 8% 0%;
 }
 
@@ -71,14 +90,226 @@ nav a {
     background-image: linear-gradient(#00ff00, #00c320);
     box-shadow: 3px 3px 15px 2px black;
     height: 450px;
-    margin: 20px 12%;
+    margin: 5% 10% 0% 12%;
     padding: 20px 0px;
 }
 
 .footer {
     background-color: #f2f2f2;
+    display: grid;
+    grid-gap: 3%;
+    grid-template-columns: 2fr 3fr;
+    margin: 1% 10% 0% 10%;
+    align-items: center;
 }
 
 .footer h2 {
     font-family: LaPicaDemo;
+}
+
+.footer ul {
+    font-family: Skia2;
+    font-size: 160%;
+}
+
+.footer p {
+    font-family: Skia2;
+    font-size: 145%;
+}
+
+.currentLink a:hover,
+.nonCurrentLinks a:hover {
+    background-color: aqua;
+    border-radius: 250px;
+}
+
+.currentCartLink a:hover,
+.cartLink a:hover {
+    background-color: aqua;
+    margin-top: 0px;
+    padding-bottom: 3px;
+    padding-top: 57px;
+}
+
+.footerBg {
+    background-color: #f2f2f2;
+    margin-bottom: 0px;
+}
+
+body section {
+    background-image: linear-gradient(#f3ff2b, #d2d647);
+    font-family: Skia2;
+    font-size: 250%;
+    margin: 2% 5% 2% 15%;
+    padding: 0% 5% 3% 5%;
+}
+
+.about {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    justify-items: center;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.about section {
+    padding-top: 0px;
+}
+
+.about img {
+    background-image: linear-gradient(#00ff00, #00c320);
+    height: 700px;
+    margin: 4%;
+    padding: 3%;
+}
+
+.about a:hover {
+    color: cornflowerblue;
+}
+
+.products ul {
+    align-content: center;
+    display: grid;
+    grid-column-gap: 3%;
+    grid-row-gap: 3%;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    list-style-type: none;
+    margin: 3% 10% 6% 10%;
+    text-align: center;
+}
+
+.products ul li {
+    background-image: linear-gradient(#cccccc, #f2f2f2);
+    box-shadow: 3px 3px 15px 2px black;
+}
+
+.products ul li p {
+    font-size: 150%;
+}
+
+li h1,
+li p {
+    font-family: Skia2;
+    font-weight: 400;
+}
+
+li h2 {
+    font-family: 'Londrina Solid', cursive;
+}
+
+li button {
+    background-image: linear-gradient(#f3ff2b, #d2d647);
+    border: none;
+    border-radius: 25px;
+    box-shadow: 3px 3px 15px 2px black;
+    font-family: Skia2;
+    font-size: 130%;
+    font-weight: 400;
+    margin: 5% 1%;
+    padding: 5px;
+}
+
+li input {
+    text-align: center;
+    width: 8%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.cartProducts li {
+    align-items: center;
+    background-image: linear-gradient(#cccccc, #f2f2f2);
+    box-shadow: 3px 3px 15px 2px black;
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr 1.5fr 1fr 2fr;
+    grid-template-rows: auto;
+    padding-bottom: 0px;
+    height: 150px;
+    justify-items: center;
+    list-style-type: none;
+    margin: 2% 10%;
+}
+
+.cartProducts li img {
+    height: 130px;
+}
+
+.cartProducts li button {
+    height: 45%;
+}
+
+button:active {
+    background: #e5e5e5;
+    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+    -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+    box-shadow: inset 0px 0px 5px #c1c1c1;
+    outline: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+.noProducts li p {
+    font-size: 500%;
+    text-align: center;
+}
+
+.total li p {
+    font-size: 150%;
+    margin-left: 75%;
+}
+
+@media screen and (max-width: 1200px) {
+    .about img {
+        height: 500px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .about img {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .homeSection {
+        display: inline;
+    }
+
+    .adBox {
+        margin: 5% 10%;
+    }
+
+    .homeSection a {
+        margin: 2% 13% 9% 13%;
+    }
+
+    nav a {
+        font-size: 100%;
+    }
+
+    .products ul {
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 20%;
+    }
+
+    .about {
+        display: inline;
+        text-align: center;
+    }
+
+    .about img {
+        height: 500px;
+        margin-left: 25%;
+        margin-right: 25%;
+    }
 }
