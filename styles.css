@@ -1,3 +1,4 @@
+/*Importing fonts*/
 @font-face {
     font-family: chopsic;
     src: url(fonts/Chopsic.otf);
@@ -50,8 +51,9 @@ nav a {
     border-radius: 250px;
 }
 
-.cartLink a img: hover {
+.cartLink:hover {
     background-color: aqua;
+    border-radius: 250px;
 }
 
 .nonCurrentLinks a {
@@ -95,12 +97,12 @@ nav a {
 }
 
 .footer {
+    align-items: center;
     background-color: #f2f2f2;
     display: grid;
     grid-gap: 3%;
     grid-template-columns: 2fr 3fr;
     margin: 1% 10% 0% 10%;
-    align-items: center;
 }
 
 .footer h2 {
@@ -117,12 +119,14 @@ nav a {
     font-size: 145%;
 }
 
+/*Changes background colour of links when mouse hovers over them*/
 .currentLink a:hover,
 .nonCurrentLinks a:hover {
     background-color: aqua;
     border-radius: 250px;
 }
 
+/*Changes background colour of links when mouse hovers over them*/
 .currentCartLink a:hover,
 .cartLink a:hover {
     background-color: aqua;
@@ -170,6 +174,7 @@ body section {
     color: cornflowerblue;
 }
 
+/*Arranges how products are displayed on products page*/
 .products ul {
     align-content: center;
     display: grid;
@@ -201,6 +206,7 @@ li h2 {
     font-family: 'Londrina Solid', cursive;
 }
 
+/*Arranges how buttons are displayed*/
 li button {
     background-image: linear-gradient(#f3ff2b, #d2d647);
     border: none;
@@ -218,12 +224,14 @@ li input {
     width: 8%;
 }
 
+/*Removes automatically added input change options*/
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
+/*Specifies how items added to cart are displayed*/
 .cartProducts li {
     align-items: center;
     background-image: linear-gradient(#cccccc, #f2f2f2);
@@ -238,6 +246,10 @@ input::-webkit-inner-spin-button {
     margin: 2% 10%;
 }
 
+.cartProducts li p {
+    font-size: 200%;
+}
+
 .cartProducts li img {
     height: 130px;
 }
@@ -246,6 +258,7 @@ input::-webkit-inner-spin-button {
     height: 45%;
 }
 
+/*Makes button appear pressed when mouse clicks it*/
 button:active {
     background: #e5e5e5;
     -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
@@ -254,6 +267,7 @@ button:active {
     outline: none;
 }
 
+/*Removes all bullet points from lists*/
 li {
     list-style-type: none;
 }
@@ -268,6 +282,7 @@ li {
     margin-left: 75%;
 }
 
+/*When screen size gets down to certain values*/
 @media screen and (max-width: 1200px) {
     .about img {
         height: 500px;

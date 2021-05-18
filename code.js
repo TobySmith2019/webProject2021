@@ -1,3 +1,4 @@
+//Setting up array with the products in it for being pushed into the HTML page later
 var products = [
   ['Purple Shirt', "images/shirt2.png", 6.78, 'description'],
   ['Pink Shirt', "images/shirt1.png", 6.78, 'description'],
@@ -7,15 +8,18 @@ var products = [
   ['Red Hoodie', "images/hoodie3.png", 3.94, 'description']
 ];
 
+//Quantity of each product, set to 0 initially, used for displaying items in the cart
 var quantity = [
   0, 0, 0, 0, 0, 0
 ];
 
+//Pushes products onto the products page along with the corresponding buttons to add to cart
 function loadProducts() {
     var main = document.getElementById('shopping');
 
     for (var i = 0; i < products.length; i++) {
 
+        //Creating elements for pushing into HTML page
         var ele = document.createElement('li');
         var title = document.createElement('h1');
         var img = document.createElement('img');
@@ -27,6 +31,7 @@ function loadProducts() {
         var addCart = document.createElement('button');
         var p = 0;
 
+        //Assigning elements to a parent element in order to assign where they appear on the page
         main.appendChild(ele);
         ele.appendChild(title);
         ele.appendChild(img);
@@ -37,6 +42,7 @@ function loadProducts() {
         ele.appendChild(add);
         ele.appendChild(addCart);
 
+        //Adding information to the elements so they actually have something to display, a lot of information comes from arrays
         title.innerHTML = products[i][0];
         img.src = products[i][1];
         img.width = 300;
@@ -61,6 +67,8 @@ function loadProducts() {
     addToCart();
 }
 
+//Allows input box with number of items to change when buttons pressed
+//Assigns an onclick element to each individual button
 function changeNum() {
     document.getElementById("a0").onclick = function () {
         addNum(0);
@@ -100,6 +108,7 @@ function changeNum() {
     };
 }
 
+//Makes the add to cart button work and triggers another function to change the quantity of the quantity array so that they appear in the cart
 function addToCart() {
     document.getElementById("cart0").onclick = function () {
         cart(0);
@@ -121,6 +130,7 @@ function addToCart() {
     }
 }
 
+//Increases values of quantity array to signify items being added to the cart
 function cart(num) {
     var input = document.getElementById('input' + num).value;
     quantity[num] = localStorage.getItem("quantity" + num);
@@ -132,12 +142,14 @@ function cart(num) {
     document.getElementById('input' + num).value = 1;
 }
 
+//Increases value of input box when add button is pushed
 function addNum(num) {
     var inputValue = document.getElementById('input' + num).value;
     inputValue++;
     document.getElementById('input' + num).value = inputValue;
 }
 
+//Decreases value of input box when minus button is pushed
 function subNum(num) {
     var inputValue = document.getElementById('input' + num).value;
     if (inputValue > 1) {
@@ -146,12 +158,14 @@ function subNum(num) {
     }
 }
 
+//Loads items which were added to the cart on the cart page and displays a message if no items are in the cart, also adds total cost at bottom of page if items are in cart
 function cartProducts() {
     var main = document.getElementById('cartItems');
     var totalCost = 0;
     var allZero = "true";
     for (var i = 0; i < products.length; i++) {
         quantity[i] = localStorage.getItem("quantity" + i);
+        //Checking whether any items have been added to cart
         if (quantity[i] > 0) {
             allZero = "false";
         }
@@ -159,7 +173,7 @@ function cartProducts() {
         totalCost = totalCost + add;
         totalCost = Math.round((totalCost + Number.EPSILON) * 100) / 100;
     }
-
+    //if no items in cart, display message saying no items
     if (allZero == "true") {
         var main1 = document.getElementById('noProducts');
         var ele = document.createElement('li');
@@ -177,9 +191,10 @@ function cartProducts() {
 
         grandTotal.innerHTML = "Total: $" + totalCost;
     }
-
+    //Pushes products onto page
     for (var i = 0; i < products.length; i++) {
         if (quantity[i] > 0) {
+            //Creating elements for pushing into HTML page
             var ele = document.createElement('li');
             var img = document.createElement('img');
             var title = document.createElement('h1');
@@ -188,6 +203,7 @@ function cartProducts() {
             var delet = document.createElement('button');
             var total = document.createElement('p');
 
+            //Assigning elements to a parent element in order to assign where they appear on the page
             main.appendChild(ele);
             ele.appendChild(img);
             ele.appendChild(title);
@@ -196,6 +212,7 @@ function cartProducts() {
             ele.appendChild(delet);
             ele.appendChild(total);
 
+            //Adding information to the elements so they actually have something to display, a lot of information comes from arrays
             img.src = products[i][1];
             title.innerHTML = products[i][0];
             price.innerHTML = "$" + products[i][2];
@@ -209,7 +226,7 @@ function cartProducts() {
     deleteItems();
 }
 
-
+//Assigns onclick elements to the delete buttons if they have been added to the cart
 function deleteItems() {
     if (quantity[0] > 0) {
         document.getElementById("d0").onclick = function () {
@@ -243,6 +260,7 @@ function deleteItems() {
     }
 }
 
+//Decreases values of quantity array in cart when delete button is pressed
 function delet(num) {
     localStorage.setItem("quantity" + num, quantity[num] - 1);
     window.location.reload();
